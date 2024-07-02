@@ -3,20 +3,18 @@ import java.util.Random;
 
 
 public class GugudanQuiz {
-    private final int numberOne;
-    private final int numberTwo;
-    private final int answer;
+    private final int ANSWER;
 
     public GugudanQuiz() {
-        numberOne = new Random().nextInt(8) + 2;
-        numberTwo = new Random().nextInt(8) + 2;
-        answer = numberOne * numberTwo;
+        int NUMBERONE = new Random().nextInt(8) + 2;
+        int NUMBERTWO = new Random().nextInt(8) + 2;
+        ANSWER = NUMBERONE * NUMBERTWO;
 
-        System.out.println(numberOne + " * " + numberTwo);
+        System.out.println(NUMBERONE + " * " + NUMBERTWO);
     }
 
     public boolean checkAnswer(int userInput) {
-        return answer == userInput ;
+        return ANSWER == userInput ;
     }
 
 }

@@ -3,6 +3,6 @@ package SadariTwoPKG;
 public class Main {
     public static void main(String[] args) throws Exception {
         Game game = new Game();
-        game.start();
+        game.start();// 게임 시작
     }
 }

@@ -4,11 +4,14 @@ classDiagram
         -String title
         -String accountId
         +Todo(String id,title,accounId)
+        +getId()
+        +getTitle()
+        +getAccounId()
     }
 
     class TodoListSystem {
         -Todo[] todoList
-        +void createTodo()
+        +void addTodo()
         +Todo[] loadTodosByAccount(Account[])
         +void deleteTodo()
     }

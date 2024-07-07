@@ -30,6 +30,7 @@
 
 #### 메소드
 1. 생성자(id, title, accountId)
+2. 게터 3종
 
 ### TodoListSystem
 #### 변수

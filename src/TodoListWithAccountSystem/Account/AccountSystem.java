@@ -6,7 +6,7 @@ public class AccountSystem {
     public Account userAccount;
     public ArrayList<Account> accountList;
 
-    public void createAccount(String accountId, String accountPassword) {
+    public void addAccount(String accountId, String accountPassword) {
         Account newAccount = new Account(accountId, accountPassword);
         accountList.add(newAccount);
     }

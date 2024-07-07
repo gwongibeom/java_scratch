@@ -39,7 +39,7 @@
 ### 메소드
 1. 투두 리스트 추가(void)
 2. 계정별 투두리스트 불러오기(Account[])
-3. 투두리스트 삭제(void)
+3. 투두리스트 삭제(para-int id)(void)
 
 
 ### Account

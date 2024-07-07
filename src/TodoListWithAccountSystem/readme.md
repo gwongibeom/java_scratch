@@ -28,13 +28,15 @@
 2. 타이틀(String)
 3. 어카운트 아이디(String)
 
+#### 메소드
+1. 생성자(id, title, accountId)
 
 ### TodoListSystem
 #### 변수
 1. 투두 리스트(Todo[])
 
 ### 메소드
-1. 투두 리스트 생성(void)
+1. 투두 리스트 추가(void)
 2. 계정별 투두리스트 불러오기(Account[])
 3. 투두리스트 삭제(void)
 
@@ -57,7 +59,7 @@
 2. 현재 로그인(기본값 null)(Account)
 
 #### 메소드
-1. 어카운트 생성 및 리스트에 추가(void)
+1. 어카운트 추가(void)
 2. 로그인(para-id(String),password(String))(void)
 3. 로그아웃(para-id(String),password(String))(void)
 4. 현재 로그인 유저 getter

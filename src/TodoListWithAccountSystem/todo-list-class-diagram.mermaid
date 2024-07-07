@@ -16,10 +16,7 @@ classDiagram
         -String AccountId
         -String AccountPassword
         +Account(String id, String password)
-        +String getAccountId()
-        +void setAccountId(String accountId)
-        +String getAccountPassword()
-        +void setAccountPassword(String password)
+        +login(String id, password)
     }
 
     class AccountSystem {

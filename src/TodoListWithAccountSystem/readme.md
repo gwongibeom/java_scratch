@@ -52,5 +52,27 @@
 
 #### 메소드
 1. 어카운트 생성 및 리스트에 추가(void)
-2. 로그인(현재 로그인에 설정)(void)
-3. 로그아웃(현재 로그인 null로)(void)
+2. 로그인(para-id(String),password(String))(void)
+3. 로그아웃(para-id(String),password(String))(void)
+
+
+### InputHandler
+#### 메소드
+1. getStringInput(para-type(String))(String)
+
+### ConsoleTools
+#### 메소드
+1. clear(void)
+
+### Main
+#### 플로우
+1. AccountSystem 객체 생성
+2. TodoListSystem 객체 생성
+3. 무한반복 ↓
+   4. 로그인 하였는지 AccountSystem 현재로그인값 확인
+   5. 로그인 안했을때
+      6. 로그인 회원가입 메뉴표시
+      7. 로그인 OR 회원가입 진행
+   6. 로그인 되어있을때
+      7. TodoListSystem 메뉴, 로그아웃 표시
+      8. 기능 별 플로우 실시

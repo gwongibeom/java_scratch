@@ -1,0 +1,46 @@
+classDiagram
+    class Todo {
+        -String id
+        -String title
+        -String accountId
+    }
+    
+    class TodoListSystem {
+        -Todo[] todoList
+        +void createTodo()
+        +Todo[] loadTodosByAccount(Account[])
+        +void deleteTodo()
+    }
+    
+    class Account {
+        -String accountId
+        -String password
+    }
+    
+    class AccountSystem {
+        -Account[] accountList
+        -Account currentLogin
+        +void createAccount()
+        +void login(String id, String password)
+        +void logout(String id, String password)
+    }
+    
+    class InputHandler {
+        +String getStringInput(String type)
+    }
+    
+    class ConsoleTools {
+        +void clear()
+    }
+    
+    class Main {
+        +void main()
+    }
+    
+    Main --> AccountSystem : creates
+    Main --> TodoListSystem : creates
+    Main --> InputHandler : uses
+    Main --> ConsoleTools : uses
+    TodoListSystem --> Todo : manages
+    AccountSystem --> Account : manages
+    Todo --> Account : belongs to

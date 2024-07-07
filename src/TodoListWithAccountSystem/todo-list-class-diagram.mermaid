@@ -3,6 +3,7 @@ classDiagram
         -String id
         -String title
         -String accountId
+        +Account(String id,title,accounId)
     }
 
     class TodoListSystem {
@@ -23,6 +24,7 @@ classDiagram
         -Account[] accountList
         -Account currentLogin
         +void addAccount()
+        +Account getUserAccount
         +void login(String id, String password)
         +void logout(String id, String password)
     }

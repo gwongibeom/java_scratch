@@ -11,6 +11,10 @@ public class AccountSystem {
         accountList.add(newAccount);
     }
 
+    public Account getUserAccount() {
+        return userAccount;
+    }
+
     public void login(String accountId, String accountPassword) {
         for (Account account : accountList) {
             if(account.login(accountId, accountPassword)) userAccount = account;

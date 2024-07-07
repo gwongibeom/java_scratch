@@ -58,6 +58,7 @@
 1. 어카운트 생성 및 리스트에 추가(void)
 2. 로그인(para-id(String),password(String))(void)
 3. 로그아웃(para-id(String),password(String))(void)
+4. 현재 로그인 유저 getter
 
 
 ### InputHandler

@@ -18,16 +18,16 @@ classDiagram
         -String AccountPassword
         +Account(String id, String password)
         +boolean login(String id, password)
-        +getAccountId
-        +getAccountPassword
+        +getAccountId()
+        +getAccountPassword()
 
     }
 
     class AccountSystem {
         -Account[] accountList
         -Account currentLogin
+        +Account getUserAccount()
         +void addAccount()
-        +Account getUserAccount
         +void login(String id, String password)
         +void logout(String id, String password)
     }

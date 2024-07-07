@@ -47,6 +47,8 @@
 #### 메소드
 1. 생성자(String id, password)
 2. 로그인(String id, password)
+3. id게터
+4. password게터
 
 
 ### AccountSystem

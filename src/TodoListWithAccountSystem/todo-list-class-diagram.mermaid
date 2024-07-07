@@ -17,7 +17,10 @@ classDiagram
         -String AccountId
         -String AccountPassword
         +Account(String id, String password)
-        +login(String id, password)
+        +boolean login(String id, password)
+        +getAccountId
+        +getAccountPassword
+
     }
 
     class AccountSystem {

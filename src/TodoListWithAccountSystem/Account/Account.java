@@ -1,6 +1,7 @@
 package TodoListWithAccountSystem.Account;
 
 public class Account {
+
     private final String accountId;
     private final String accountPassword;
 
@@ -13,5 +14,12 @@ public class Account {
         return this.accountId.equals(accountId) && this.accountPassword.equals(accountPassword);
     }
 
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public String getAccountPassword() {
+        return accountPassword;
+    }
 
 }

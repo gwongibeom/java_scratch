@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AccountSystem {
     public Account userAccount;
-    public ArrayList<Account> accountList;
+    public ArrayList<Account> accountList = new ArrayList<Account>();
 
     public void addAccount(String accountId, String accountPassword) {
         Account newAccount = new Account(accountId, accountPassword);
@@ -17,10 +17,13 @@ public class AccountSystem {
 
     public void login(String accountId, String accountPassword) {
         for (Account account : accountList) {
-            if(account.login(accountId, accountPassword)) userAccount = account;
+            if(account.login(accountId, accountPassword)){
+                userAccount = account;
+                System.out.println(userAccount.getAccountId() + " 로그인 됨");
+            }
         }
 
-        if(userAccount == null) System.out.println("Account not found");
+        if(userAccount == null) System.out.println("계정을 찾을 수 없어요");
     }
 
     public void logout() {

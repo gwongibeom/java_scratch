@@ -4,19 +4,24 @@ classDiagram
         -String title
         -String accountId
     }
-    
+
     class TodoListSystem {
         -Todo[] todoList
         +void createTodo()
         +Todo[] loadTodosByAccount(Account[])
         +void deleteTodo()
     }
-    
+
     class Account {
         -String accountId
         -String password
+        +Account(String id, String password)
+        +String getAccountId()
+        +void setAccountId(String accountId)
+        +String getPassword()
+        +void setPassword(String password)
     }
-    
+
     class AccountSystem {
         -Account[] accountList
         -Account currentLogin
@@ -24,19 +29,19 @@ classDiagram
         +void login(String id, String password)
         +void logout(String id, String password)
     }
-    
+
     class InputHandler {
         +String getStringInput(String type)
     }
-    
+
     class ConsoleTools {
         +void clear()
     }
-    
+
     class Main {
         +void main()
     }
-    
+
     Main --> AccountSystem : creates
     Main --> TodoListSystem : creates
     Main --> InputHandler : uses

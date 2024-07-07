@@ -44,6 +44,11 @@
 1. 어카운트 아이디(String)
 2. 어카운트 비밀번호(String)
 
+#### 메소드
+1. 생성자(String id, password)
+2. getter
+3. setter
+
 
 ### AccountSystem
 #### 변수

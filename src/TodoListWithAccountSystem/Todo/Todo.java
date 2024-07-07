@@ -13,9 +13,9 @@ public class Todo {
         return accountId;
     }
 
-    private int id;
-    private String title;
-    private String accountId;
+    private final int id;
+    private final String title;
+    private final String accountId;
 
     Todo(int id, String title, String accountId) {
         this.id = id;

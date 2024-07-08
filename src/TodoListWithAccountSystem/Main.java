@@ -1,34 +1,38 @@
 package TodoListWithAccountSystem;
 
 import TodoListWithAccountSystem.Account.AccountSystem;
-import TodoListWithAccountSystem.Todo.Todo;
 import TodoListWithAccountSystem.Todo.TodoListSystem;
 import TodoListWithAccountSystem.Utils.ConsoleTool;
 import TodoListWithAccountSystem.Utils.InputHandler;
 
-import java.util.ArrayList;
-
 
 public class Main {
-    public static void main(String[] args) {
-        AccountSystem accountSystem = new AccountSystem();
-        InputHandler inputHandler = new InputHandler();
-        TodoListSystem todoListSystem = new TodoListSystem();
+    public static void main(String[] args) throws Exception {
+        AccountSystem AC = new AccountSystem();
+        InputHandler IH = new InputHandler();
+        TodoListSystem TLS = new TodoListSystem();
+        ConsoleTool CT = new ConsoleTool();
 
-        String id = inputHandler.getStringInput("id: ");
-        String password = inputHandler.getStringInput("password: ");
+        while (true) {
+            if (AC.getUserAccount() == null) {
+                CT.clear();
+                String accountSelectedMenu = AC.printMenuAndGetSelection();
+                String id = IH.getStringInput("id: ");
+                String password = IH.getStringInput("password: ");
 
-        accountSystem.addAccount(id, password);
-        accountSystem.login(id,password);
+                if (accountSelectedMenu.equals("LOGIN")) AC.login(id, password);
+                if (accountSelectedMenu.equals("JOIN")) AC.addAccount(id, password);
+                continue;
+            }
 
-        todoListSystem.addTodo("김치 썰기", accountSystem.getUserAccount().getAccountId());
-        ArrayList<Todo> test = todoListSystem.loadTodosByAccount(accountSystem.getUserAccount().getAccountId());
+            CT.clear();
+            TLS.printTodos(AC.getUserAccount().getAccountId());
+            String todoSelectedMenu = TLS.printMenuAndGetSelection();
+            if (todoSelectedMenu.equals("ADD"))
+                TLS.addTodo(IH.getStringInput("제목: "), AC.getUserAccount().getAccountId());
+            if (todoSelectedMenu.equals("DELETE")) TLS.deleteTodo(IH.getIntInput("번호: "));
+            if (todoSelectedMenu.equals("LOGOUT")) AC.logout();
 
-        for (Todo todo : test) {
-            System.out.println(todo.getTitle());
         }
-
-
-
     }
 }

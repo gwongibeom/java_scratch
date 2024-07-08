@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class TodoListSystem {
-    private ArrayList<Todo> todoList = new ArrayList<Todo>();
+    private ArrayList<Todo> todoList = new ArrayList<>();
 
     public void addTodo(String title, String accountId) {
         Todo newTodo = new Todo(todoList.size() + 1, title, accountId);

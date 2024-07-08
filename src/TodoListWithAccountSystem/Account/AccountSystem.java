@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AccountSystem {
     public Account userAccount;
-    public ArrayList<Account> accountList = new ArrayList<Account>();
+    public ArrayList<Account> accountList = new ArrayList<>();
 
     public void addAccount(String accountId, String accountPassword) {
         Account newAccount = new Account(accountId, accountPassword);

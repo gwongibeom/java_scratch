@@ -5,34 +5,55 @@ import TodoListWithAccountSystem.Todo.TodoListSystem;
 import TodoListWithAccountSystem.Utils.ConsoleTool;
 import TodoListWithAccountSystem.Utils.InputHandler;
 
-
 public class Main {
+    private static final AccountSystem accountSystem = new AccountSystem();
+    private static final InputHandler inputHandler = new InputHandler();
+    private static final TodoListSystem todoListSystem = new TodoListSystem();
+    private static final ConsoleTool consoleTool = new ConsoleTool();
+
     public static void main(String[] args) throws Exception {
-        AccountSystem AC = new AccountSystem();
-        InputHandler IH = new InputHandler();
-        TodoListSystem TLS = new TodoListSystem();
-        ConsoleTool CT = new ConsoleTool();
-
         while (true) {
-            if (AC.getUserAccount() == null) {
-                CT.clear();
-                String accountSelectedMenu = AC.printMenuAndGetSelection();
-                String id = IH.getStringInput("id: ");
-                String password = IH.getStringInput("password: ");
-
-                if (accountSelectedMenu.equals("LOGIN")) AC.login(id, password);
-                if (accountSelectedMenu.equals("JOIN")) AC.addAccount(id, password);
-                continue;
+            if (accountSystem.getUserAccount() == null) {
+                handleAccountMenu();
+            } else {
+                handleTodoMenu();
             }
+        }
+    }
 
-            CT.clear();
-            TLS.printTodos(AC.getUserAccount().getAccountId());
-            String todoSelectedMenu = TLS.printMenuAndGetSelection();
-            if (todoSelectedMenu.equals("ADD"))
-                TLS.addTodo(IH.getStringInput("제목: "), AC.getUserAccount().getAccountId());
-            if (todoSelectedMenu.equals("DELETE")) TLS.deleteTodo(IH.getIntInput("번호: "));
-            if (todoSelectedMenu.equals("LOGOUT")) AC.logout();
+    private static void handleAccountMenu() throws Exception {
+        consoleTool.clear();
+        String accountSelectedMenu = accountSystem.printMenuAndGetSelection();
+        String id = inputHandler.getStringInput("id: ");
+        String password = inputHandler.getStringInput("password: ");
 
+        switch (accountSelectedMenu) {
+            case "LOGIN":
+                accountSystem.login(id, password);
+                break;
+            case "JOIN":
+                accountSystem.addAccount(id, password);
+                break;
+        }
+    }
+
+    private static void handleTodoMenu() throws InterruptedException {
+        consoleTool.clear();
+        todoListSystem.printTodos(accountSystem.getUserAccount().getAccountId());
+        String todoSelectedMenu = todoListSystem.printMenuAndGetSelection();
+
+        switch (todoSelectedMenu) {
+            case "ADD":
+                String title = inputHandler.getStringInput("제목: ");
+                todoListSystem.addTodo(title, accountSystem.getUserAccount().getAccountId());
+                break;
+            case "DELETE":
+                int todoNumber = inputHandler.getIntInput("번호: ");
+                todoListSystem.deleteTodo(todoNumber);
+                break;
+            case "LOGOUT":
+                accountSystem.logout();
+                break;
         }
     }
 }

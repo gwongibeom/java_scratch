@@ -12,7 +12,8 @@ classDiagram
     class TodoListSystem {
         -Todo[] todoList
         +void addTodo()
-        +Todo[] loadTodosByAccount(Account[])
+        +Todo[] getTodosByAccount(Account[])
+        +void printTodos(String id)
         +void deleteTodo(int id)
     }
 
